@@ -3,6 +3,19 @@ import React from "react";
 import Image from "next/image";
 
 import { TypeAnimation } from "react-type-animation";
+import { Tilt } from "react-tilt";
+
+const defaultOptions = {
+  reverse: true, // reverse the tilt direction
+  max: 20, // max tilt rotation (degrees)
+  perspective: 1000, // Transform perspective, the lower the more extreme the tilt gets.
+  scale: 1.0, // 2 = 200%, 1.5 = 150%, etc..
+  speed: 500, // Speed of the enter/exit transition
+  transition: true, // Set a transition on enter/exit.
+  axis: false, // What axis should be disabled. Can be X or Y.
+  reset: true, // If the tilt effect has to be reset on exit.
+  easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
+};
 
 const HeroSection = () => {
   return (
@@ -16,7 +29,7 @@ const HeroSection = () => {
             <TypeAnimation
               sequence={[
                 // Same substring at the start will only be typed out once, initially
-                "Moisés",
+                "Moisés de Menezes",
                 1000, // wait 1s before replacing "Mice" with "Hamsters"
                 "Front-End Developer",
                 1000,
@@ -43,16 +56,19 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
+
         <div className="col-span-5 place-self-center mt-4 lg:mt-0">
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
-            <Image
-              width={300}
-              height={300}
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="hero-image"
-              src="/heroImage.svg"
-            />
-          </div>
+          <Tilt options={defaultOptions} className="h-500 w-500">
+            <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
+              <Image
+                width={300}
+                height={300}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="hero-image"
+                src="/heroImage.svg"
+              />
+            </div>
+          </Tilt>
         </div>
       </div>
     </section>
