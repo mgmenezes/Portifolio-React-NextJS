@@ -1,5 +1,7 @@
-import HeroSection from "@/components/HeroSection";
-import Navbar from "@/components/Navbar";
+import AboutSection from "../components/AboutSection";
+import HeroSection from "../components/HeroSection";
+import Navbar from "../components/Navbar";
+import ProjectsSection from "../components/ProjectsSection";
 
 export default function Home() {
   return (
@@ -7,6 +9,8 @@ export default function Home() {
       <Navbar />
       <div className=" mt-28 container mx-auto py-4 px-12">
         <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
       </div>
     </main>
   );
